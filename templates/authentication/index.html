@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carcompanion</title>
+    {%load static%}
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class ="banner" >
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <div class="error">
+      <strong>Message:</strong> {{ message }}
+       
+    <span aria-hidden="true">&times;</span>
+  </div>
+  </button>
+</div>
+</span>
+   
+    {% endfor %}
+
+    
+   
+
+
+    {% if user.is_authenticated %}
+    <div class="so">    
+      <button type="submit" ><a href="/signout"style="--clr:#1e9bff"><span>SignOut</span><i></i></a></button>
+    </div>
+
+    <div class="container">
+      <h3 class="hi">Hello {{fname}}!</h3><br>
+      <h4 class="lgi">You're successfully logged in.</h4><br>
+      
+      <h1 class="form-title">Carcompanion</h1>
+      <form method="post">
+            {% csrf_token %}
+            <div class="main-user-info">
+              <div class = "user-input-box">
+                <label for ="brandname">Car Brand:</label>
+                <input type="text" id="brand" name="brand" placeholder="Enter Brand name (Ex: Ford)"  required="required" />
+                <label for = "model">Model:</label>
+                <input type="text" id="model"name="model" placeholder="Enter model name" required="required" />
+                
+                <label for="year">Year:</label>
+        		    <input type="text" id ="year" name="year" placeholder="Enter year"  required="required" />
+                
+                <label for ="km">Kilometers:</label>
+                <input type="text" id="km" name="km" placeholder="Enter the kilometer run" required="required" />
+                <label for="Mileage">Mileage:</label>
+                <input type="text"id="Mileage" name="mileage" placeholder="Enter the mileage in kilometers"  required="required" />
+                
+                <label for="engine">Engine</label>
+                <input type="text" id= "engine" name="Engine" placeholder="Enter the cc of your car"  required="required" />
+                
+             <label for ="seats">No of Seats:</label>
+             <input type="text" id="seats" name="seats" placeholder="Enter the number of seats in your car"  required="required" />
+        
+             <label for="Fueltype">Fuel Type:</label>
+             <select name="Fuel" id="dropdownblock"  >
+               <option value="diesel">Diesel</option>
+               <option value="petrol">Petrol</option>
+               <option value="cng">CNG</option>
+               <option value="lpg">LPG</option>
+              </select>
+              <br>
+              
+             
+                  <label for ="Transmission">Transmission:</label>
+                  <select name="transmission" id="dropdownblock" >
+                    <option value="manual">Manual</option>
+                            <option value="auto">Automatic</option>
+                          </select>
+                      <br>    
+                          <label for="Ownership">Ownership</label>
+                          <select name="Ownership" id="dropdownblock" >
+                            <option value="A">First</option>
+                            <option value="B">Second</option>
+                            <option value="C">Third</option>
+                            <option value="D">Fourth & Above</option>
+                            
+                          </select>
+                          
+                         <br> 
+                         <div class= "form-submit-btn">
+                           <button type="submit" value="Predict Price">Predict Car price</button>
+        
+              </div>
+            </div>
+ 
+            </div>
+          </form>
+       
+    </div>
+      
+       
+
+    {% else %}
+    <div class="content">
+      <h1 >Carcompanion </h1>
+      <p>Best for less </p>
+      <div>
+        <button type="submit"><a href="/signin" style="--clr:#1e9bff"><span>Sign in</span><i></i></a></button>
+        <button type="submit"><a href="/signup"style="--clr:#1e9bff"><span>Register</span><i></i></a></button>
+    
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    {%load static%}
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+    
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+    {% endfor %}
+
+<div class="wrapper-L">
+    <div class="form-wrapper-L sign-in">
+        <form method="post" action="/signin" class="mb-2" autocomplete="off">
+        <h2>Login</h2>
+        {% csrf_token %}
+       
+        <div class ="input-group">
+        
+           <input type="text" id="username" name="username"Required>
+           <label> Username</label>
+           
+           
+       </div>
+
+      
+       <div class ="input-group">
+       
+        <input type="password"  id="pass1" name="pass1" Required>
+        <label> Password</label>
+           
+           
+    </div>
+{% comment %} <div class="remember"> {% endcomment %}
+    {% comment %} <label for=""><input type=
+        "checkbox">Remember me</label>
+</div> {% endcomment %}
+    
+    
+    <button type="submit" value="Login"> Login</button>
+
+    <div class="signup-link">
+      <p>  Don't have an account? <a href="/signup"
+        >Register</a></p>
+    
+     </div>
+
+            
+     
+     
+
+</form>
+</div>
+     
+</div>
+
+        
+       
+
+</body>
+</html>

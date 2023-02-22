@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        {%load static%}
+        <link rel="stylesheet" href="/static/login.css">
+    </head>
+    <body>
+        <div class="wrapper-S">
+            <div class="form-wrapper-S sign-up">
+                
+                <form method="post" action="/signup">
+            <h2> Signup</h2>
+            {% csrf_token %}
+            
+                <div class ="input-group">
+                    <input type="text" class="form-control" id="username" name="username"  Required>
+                    <label for="username">Username</label>
+            </div>
+            <div class ="input-group">
+                <input type="text" class="form-control" id="fname" name="fname"  Required>
+                <label for="fname">First Name </label>
+            </div>
+            <div class ="input-group">
+                <input type="text" class="form-control" id="lname" name="lname"  Required>
+                <label for="lname">Last Name</label>
+            </div>
+            <div class ="input-group">
+                <input type="email" class="form-control" id="email" name="email"  Required>
+                <label for="email">Email</label>
+            </div>
+            <div class ="input-group">
+                <input type="password" class="form-control" id="pass1" name="pass1" Required>
+                <label for="pass1">Password</label>
+            </div>
+            <div class ="input-group">
+                <input type="password" class="form-control" id="pass2" name="pass2"  Required>
+                <label for="pass2">Confirm Password</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="--clr:#1e9bff">Sign Up</button>
+            
+            <div class="signup-link">
+            <p>Already have an account ? <a href="/signin" class="signupbtn">Login</a></p>
+            </div>
+        </form>
+    </div>
+     
+</div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
